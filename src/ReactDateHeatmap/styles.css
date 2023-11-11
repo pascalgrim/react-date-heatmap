@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter&display=swap');
+
+/* REACT DATE HEATMAP COMPONENT */
+.react-date-heatmap-container {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    overflow: auto;
+    font-family: 'Inter', sans-serif;
+}
+
+.board-container {
+    display: flex;
+
+}
+
+.board-row {
+    display: flex;
+    flex-direction: column;
+}
+
+/* SHADE COMPONENT*/
+.shade-container {
+    display: flex;
+    gap: 2px;
+    width: fit-content;
+}
+
+.shade {
+    border-radius: 9999px;
+}
+
+/* MONTHS CONTAINER COMPONENT */
+.months-container {
+    display: flex;
+    position: relative;
+}
+
+/* SQUARE COMPONENT */
+.square {
+    color: #fff;
+    border-radius: 2px;
+}
