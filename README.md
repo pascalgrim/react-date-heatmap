@@ -35,23 +35,6 @@ const YourComponent = () => {
 export default YourComponent;
 ```
 
-## Example Usage
-
-```jsx
-import React from 'react';
-import ReactDateHeatmap from 'react-date-heatmap';
-
-const YourComponent = () => {
-  const arrayOfDates = /* ... */;
-
-  return (
-    <ReactDateHeatmap data={arrayOfDates} />
-  );
-}
-
-export default YourComponent;
-```
-
 ## List of Props
 
 | Name               | Type                         | Default Value | Description                                          |
