@@ -51,7 +51,7 @@ export default YourComponent;
 
 ## Types
 
-# Date Entry
+### Date Entry
 
 | Name        | Type      | Description                                    |
 | ----------- | --------- | ---------------------------------------------- |
