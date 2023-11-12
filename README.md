@@ -1,27 +1,29 @@
-# React + TypeScript + Vite
+## ReactDateHeatmap Component Props
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+| Name         | Type                 | Description                                          |
+| ------------ | -------------------- | ---------------------------------------------------- |
+| `data`       | `Date[]`             | An array of dates to be visualized in the heatmap.   |
+| `startDate`  | `Date` (optional)    | The start date for the heatmap range.                |
+| `endDate`    | `Date` (optional)    | The end date for the heatmap range.                  |
+| `rows`       | `number` (optional)  | Number of rows to display in the heatmap grid.       |
+| `showMonths` | `boolean` (optional) | Display month indicators on the heatmap.             |
+| `showShades` | `boolean` (optional) | Display shades indicating the quantity of each date. |
 
-Currently, two official plugins are available:
+## SquareProps
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+| Name               | Type                         | Description                                  |
+| ------------------ | ---------------------------- | -------------------------------------------- |
+| `squareColor`      | `string`                     | Color of the filled squares in the heatmap.  |
+| `squareSize`       | `number`                     | Size of each square in the heatmap grid.     |
+| `emptySquareColor` | `string`                     | Color of empty squares in the heatmap.       |
+| `onSquareClick`    | `(entry: DateEntry) => void` | Callback function triggered on square click. |
+| `hideTooltip`      | `boolean` (optional)         | Hide tooltips on square hover.               |
 
-## Expanding the ESLint configuration
+## DateEntry
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-   parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-   },
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+| Name        | Type      | Description                                    |
+| ----------- | --------- | ---------------------------------------------- |
+| `date`      | `Date`    | The date represented by the entry.             |
+| `formatted` | `string`  | A formatted string representation of the date. |
+| `active`    | `boolean` | Indicates whether the date is active or not.   |
+| `quantity`  | `number`  | Quantity associated with the date.             |
