@@ -93,7 +93,7 @@ export default function ReactDateHeatmap({ data, startDate, endDate, textColor =
                 {showMonths && <MonthsContainer months={months} squareWidth={squareSize + squareGap} textColor={textColor} />}
                 <div className='board-container' style={{ gap: squareGap }}>
                     {board.map((row, rowIndex) => (
-                        <div key={rowIndex} className='board-row' style={{ gap: squareGap }}>
+                        <div key={rowIndex} className='board-col' style={{ gap: squareGap }}>
                             {row.map((square, colIndex) => (
                                 <div key={colIndex}>{square}</div>
                             ))}

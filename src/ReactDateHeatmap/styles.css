@@ -14,7 +14,7 @@
 
 }
 
-.board-row {
+.board-col {
     display: flex;
     flex-direction: column;
 }
