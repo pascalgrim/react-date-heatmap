@@ -1,5 +1,7 @@
 # react-date-heatmap
 
+A React Component that allows you to visualize an array of dates in form of a heatmap.
+
 ## Installation
 
 Install `react-date-heatmap` in your project using the following npm command:
