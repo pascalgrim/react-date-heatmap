@@ -47,6 +47,7 @@ export default YourComponent;
 | `showShades`       | `boolean`                    | `true`        | Display shades indicating the quantity of each date. |
 | `squareSize`       | `number`                     | `32`          | Size of each square in the heatmap grid.             |
 | `squareColor`      | `string`                     | `"#00ff00"`   | Color of the filled squares in the heatmap.          |
+| `textColor`        | `string`                     | `#000000`     | Color of the months text.                            |
 | `emptySquareColor` | `string`                     | `"#333333"`   | Color of empty squares in the heatmap.               |
 | `onSquareClick`    | `(entry: DateEntry) => void` | -             | Callback function triggered on square click.         |
 | `hideTooltip`      | `boolean`                    | `false`       | Hide tooltips on square hover.                       |

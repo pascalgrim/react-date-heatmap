@@ -6,4 +6,5 @@ export const DefaultValues = {
   showMonths: true,
   showShades: true,
   hideTooltip: false,
+  textColor: "#000000",
 };

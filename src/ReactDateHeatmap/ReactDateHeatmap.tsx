@@ -18,9 +18,10 @@ type ReactDateHeatmapComponentProps = SquareProps & React.HTMLAttributes<HTMLDiv
     rows?: number;
     showMonths?: boolean;
     showShades?: boolean;
+    textColor?: string;
 };
 
-export default function ReactDateHeatmap({ data, startDate, endDate, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, ...props }: ReactDateHeatmapComponentProps) {
+export default function ReactDateHeatmap({ data, startDate, endDate, textColor = DefaultValues.textColor, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, ...props }: ReactDateHeatmapComponentProps) {
     const [board, setBoard] = useState<React.ReactNode[][]>([[]])
     const [months, setMonths] = useState<MonthEntry[]>([])
     const start = startDate ? startDate : getEarliestDate(data)
@@ -89,7 +90,7 @@ export default function ReactDateHeatmap({ data, startDate, endDate, squareColor
     return (
         <div {...props}>
             <div className='react-date-heatmap-container' >
-                {showMonths && <MonthsContainer months={months} squareWidth={squareSize + squareGap} />}
+                {showMonths && <MonthsContainer months={months} squareWidth={squareSize + squareGap} textColor={textColor} />}
                 <div className='board-container' style={{ gap: squareGap }}>
                     {board.map((row, rowIndex) => (
                         <div key={rowIndex} className='board-row' style={{ gap: squareGap }}>
