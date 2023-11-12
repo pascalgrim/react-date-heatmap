@@ -1,4 +1,4 @@
-#react-date-heatmap
+# react-date-heatmap
 
 ## Installation
 
