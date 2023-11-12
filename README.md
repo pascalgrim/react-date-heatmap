@@ -35,6 +35,23 @@ const YourComponent = () => {
 export default YourComponent;
 ```
 
+## Example Usage
+
+```jsx
+import React from 'react';
+import ReactDateHeatmap from 'react-date-heatmap';
+
+const YourComponent = () => {
+  const arrayOfDates = /* ... */;
+
+  return (
+    <ReactDateHeatmap data={arrayOfDates} />
+  );
+}
+
+export default YourComponent;
+```
+
 ## List of Props
 
 | Name               | Type                         | Default Value | Description                                          |
@@ -47,7 +64,7 @@ export default YourComponent;
 | `showShades`       | `boolean`                    | `true`        | Display shades indicating the quantity of each date. |
 | `squareSize`       | `number`                     | `32`          | Size of each square in the heatmap grid.             |
 | `squareColor`      | `string`                     | `"#00ff00"`   | Color of the filled squares in the heatmap.          |
-| `emptySquareColor` | `string`                     | `"#000000"`   | Color of empty squares in the heatmap.               |
+| `emptySquareColor` | `string`                     | `"#333333"`   | Color of empty squares in the heatmap.               |
 | `onSquareClick`    | `(entry: DateEntry) => void` | -             | Callback function triggered on square click.         |
 | `hideTooltip`      | `boolean`                    | `false`       | Hide tooltips on square hover.                       |
 
