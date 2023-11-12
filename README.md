@@ -1,15 +1,15 @@
-## ReactDateHeatmap Component Props
+# ReactDateHeatmap Component Props
 
-| Name         | Type                 | Description                                          |
-| ------------ | -------------------- | ---------------------------------------------------- |
-| `data`       | `Date[]`             | An array of dates to be visualized in the heatmap.   |
-| `startDate`  | `Date` (optional)    | The start date for the heatmap range.                |
-| `endDate`    | `Date` (optional)    | The end date for the heatmap range.                  |
-| `rows`       | `number` (optional)  | Number of rows to display in the heatmap grid.       |
-| `showMonths` | `boolean` (optional) | Display month indicators on the heatmap.             |
-| `showShades` | `boolean` (optional) | Display shades indicating the quantity of each date. |
+| Name         | Type      | Description                                          |
+| ------------ | --------- | ---------------------------------------------------- |
+| `data`       | `Date[]`  | An array of dates to be visualized in the heatmap.   |
+| `startDate`  | `Date`    | The start date for the heatmap range.                |
+| `endDate`    | `Date`    | The end date for the heatmap range.                  |
+| `rows`       | `number`  | Number of rows to display in the heatmap grid.       |
+| `showMonths` | `boolean` | Display month indicators on the heatmap.             |
+| `showShades` | `boolean` | Display shades indicating the quantity of each date. |
 
-## SquareProps
+# SquareProps
 
 | Name               | Type                         | Description                                  |
 | ------------------ | ---------------------------- | -------------------------------------------- |
@@ -17,9 +17,9 @@
 | `squareSize`       | `number`                     | Size of each square in the heatmap grid.     |
 | `emptySquareColor` | `string`                     | Color of empty squares in the heatmap.       |
 | `onSquareClick`    | `(entry: DateEntry) => void` | Callback function triggered on square click. |
-| `hideTooltip`      | `boolean` (optional)         | Hide tooltips on square hover.               |
+| `hideTooltip`      | `boolean`                    | Hide tooltips on square hover.               |
 
-## DateEntry
+# DateEntry
 
 | Name        | Type      | Description                                    |
 | ----------- | --------- | ---------------------------------------------- |
