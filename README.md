@@ -2,6 +2,8 @@
 
 A React Component that allows you to visualize an array of dates in form of a heatmap.
 
+![screenshot](./example/example-screenshot.PNG)
+
 ## Installation
 
 Install `react-date-heatmap` in your project using the following npm command:
@@ -43,8 +45,8 @@ export default YourComponent;
 | `rows`             | `number`                     | `7`           | Number of rows to display in the heatmap grid.       |
 | `showMonths`       | `boolean`                    | `true`        | Display month indicators on the heatmap.             |
 | `showShades`       | `boolean`                    | `true`        | Display shades indicating the quantity of each date. |
-| `squareColor`      | `string`                     | `"#00ff00"`   | Color of the filled squares in the heatmap.          |
 | `squareSize`       | `number`                     | `32`          | Size of each square in the heatmap grid.             |
+| `squareColor`      | `string`                     | `"#00ff00"`   | Color of the filled squares in the heatmap.          |
 | `emptySquareColor` | `string`                     | `"#000000"`   | Color of empty squares in the heatmap.               |
 | `onSquareClick`    | `(entry: DateEntry) => void` | -             | Callback function triggered on square click.         |
 | `hideTooltip`      | `boolean`                    | `false`       | Hide tooltips on square hover.                       |
