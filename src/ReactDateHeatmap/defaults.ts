@@ -5,4 +5,5 @@ export const DefaultValues = {
   emptySquareColor: "#000000",
   showMonths: true,
   showShades: true,
+  hideTooltip: false,
 };

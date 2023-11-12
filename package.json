@@ -1,20 +1,38 @@
 {
   "name": "react-date-heatmap",
-  "private": true,
-  "version": "0.0.0",
+  "description": "A React Component that allows you to visualize an array of dates in form of a heatmap.",
+  "author": "Pascal Grimmiger",
+  "private": false,
+  "version": "1.0.0",
   "type": "module",
+  "main": "dist/cjs/index.js",
+  "keywords": [
+    "react",
+    "react-date-heatmap",
+    "react-heatmap",
+    "heatmap",
+    "github",
+    "github-heatmap"
+  ],
+  "files": [
+    "dist"
+  ],
+  "types": "dist/index.d.ts",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
     "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "rollup": "rollup -c --bundleConfigAsCjs"
   },
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
     "react-tooltip": "^5.22.0"
   },
   "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.7",
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@rollup/plugin-terser": "^0.4.4",
+    "@rollup/plugin-typescript": "^11.1.5",
     "@types/react": "^18.2.15",
     "@types/react-dom": "^18.2.7",
     "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -23,7 +41,19 @@
     "eslint": "^8.45.0",
     "eslint-plugin-react-hooks": "^4.6.0",
     "eslint-plugin-react-refresh": "^0.4.3",
+    "postcss-scss": "^4.0.9",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "rollup": "^4.4.0",
+    "rollup-plugin-dts": "^6.1.0",
+    "rollup-plugin-import-css": "^3.3.5",
+    "rollup-plugin-peer-deps-external": "^2.2.4",
+    "rollup-plugin-postcss": "^4.0.2",
+    "tslib": "^2.6.2",
     "typescript": "^5.0.2",
     "vite": "^4.4.5"
+  },
+  "peerDependencies": {
+    "react": "^18.2.0"
   }
 }

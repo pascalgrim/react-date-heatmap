@@ -1,3 +1,4 @@
+import "../styles.css"
 type ShadeProps = {
     color: string,
     size: number

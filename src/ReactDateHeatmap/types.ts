@@ -15,4 +15,5 @@ export type SquareProps = {
   squareSize?: number;
   emptySquareColor?: string;
   onSquareClick?: (entry: DateEntry) => void;
+  hideTooltip?: boolean;
 };

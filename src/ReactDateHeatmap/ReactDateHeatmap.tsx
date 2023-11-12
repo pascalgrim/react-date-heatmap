@@ -20,13 +20,13 @@ type ReactDateHeatmapComponentProps = SquareProps & React.HTMLAttributes<HTMLDiv
     showShades?: boolean;
 };
 
-export function ReactDateHeatmap({ data, startDate, endDate, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, onSquareClick, ...props }: ReactDateHeatmapComponentProps) {
+export default function ReactDateHeatmap({ data, startDate, endDate, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, ...props }: ReactDateHeatmapComponentProps) {
     const [board, setBoard] = useState<React.ReactNode[][]>([[]])
     const [months, setMonths] = useState<MonthEntry[]>([])
     const start = startDate ? startDate : getEarliestDate(data)
     const end = endDate ? endDate : getLatestDate(data)
     if (end <= start) {
-        throw Error(`Enddate ${end} can't be earlier than the Startdate ${start}.`)
+        console.error(`The selected end date (${end}) must be later than the start date (${start}) to ensure proper functionality and accurate data representation in the component. Please adjust the dates accordingly.`)
     }
     const entries = getDateEntries(data, start, end)
     const cols = Math.ceil(entries.length / rows)
@@ -43,14 +43,14 @@ export function ReactDateHeatmap({ data, startDate, endDate, squareColor = Defau
                 boardArray.push([]);
             }
             for (let j = 0; j < rows; j++) {
-                boardArray[col].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} />);
+                boardArray[col].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} />);
                 counter++
             }
         }
         if (rest > 0) {
             boardArray.push([])
             for (let row = 0; row < rest; row++) {
-                boardArray[boardArray.length - 1].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} />)
+                boardArray[boardArray.length - 1].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} />)
                 counter++
             }
         }
@@ -74,7 +74,7 @@ export function ReactDateHeatmap({ data, startDate, endDate, squareColor = Defau
 
     useEffect(() => {
         calculateBoard(entries)
-    }, [data,squareSize]);
+    }, [data, squareSize]);
 
     if (!isValidHexColorCode(squareColor)) {
         printInvalidHexCodeWarningMessage(squareColor)
@@ -90,9 +90,9 @@ export function ReactDateHeatmap({ data, startDate, endDate, squareColor = Defau
         <div {...props}>
             <div className='react-date-heatmap-container' >
                 {showMonths && <MonthsContainer months={months} squareWidth={squareSize + squareGap} />}
-                <div className='board-container' style={{gap:squareGap}}>
+                <div className='board-container' style={{ gap: squareGap }}>
                     {board.map((row, rowIndex) => (
-                        <div key={rowIndex} className='board-row' style={{gap:squareGap}}>
+                        <div key={rowIndex} className='board-row' style={{ gap: squareGap }}>
                             {row.map((square, colIndex) => (
                                 <div key={colIndex}>{square}</div>
                             ))}
