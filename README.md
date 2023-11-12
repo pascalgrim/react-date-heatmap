@@ -1,4 +1,35 @@
-react-date-heatmap
+#react-date-heatmap
+
+## Installation
+
+Install `react-date-heatmap` in your project using the following npm command:
+
+```bash
+npm install react-date-heatmap
+```
+
+Or with yarn
+
+```bash
+yarn add react-date-heatmap
+```
+
+After installation, you can use the ReactDateHeatmap component in your React project.
+
+```jsx
+import React from 'react';
+import ReactDateHeatmap from 'react-date-heatmap';
+
+const YourComponent = () => {
+  const arrayOfDates = /* ... */;
+
+  return (
+    <ReactDateHeatmap data={arrayOfDates} />
+  );
+}
+
+export default YourComponent;
+```
 
 ## ReactDateHeatmap Component Props
 
