@@ -3,9 +3,13 @@
   "description": "A React Component that allows you to visualize an array of dates in form of a heatmap.",
   "author": "Pascal Grimmiger",
   "private": false,
-  "version": "1.0.0",
+  "version": "1.0.1",
   "type": "module",
   "main": "dist/cjs/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/pascalgrim/react-date-heatmap.git"
+  },
   "keywords": [
     "react",
     "react-date-heatmap",
