@@ -5,13 +5,11 @@
     display: flex;
     flex-direction: column;
     gap: 8px;
-    overflow: auto;
     font-family: 'Inter', sans-serif;
 }
 
 .board-container {
     display: flex;
-
 }
 
 .board-col {
@@ -40,4 +38,16 @@
 .square {
     color: #fff;
     border-radius: 2px;
+    position: relative;
+}
+
+.tooltip {
+    position: absolute;
+    left: 50%;
+    top: -50px;
+    transform: translateX(-50%);
+    padding: 5px;
+    border-radius: 5px;
+    white-space: nowrap;
+    z-index: 10;
 }

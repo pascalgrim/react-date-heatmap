@@ -1,6 +1,6 @@
 export function getRandomDateArray(length: number) {
-  const startDate = new Date(2022, 5, 7);
-  const endDate = new Date(2022, 11, 31);
+  const startDate = new Date(2023, 9, 7);
+  const endDate = new Date(2023, 11, 31);
   const dateArray = [];
   for (let i = 0; i < length; i++) {
     const randomTime =

@@ -16,4 +16,7 @@ export type SquareProps = {
   emptySquareColor?: string;
   onSquareClick?: (entry: DateEntry) => void;
   hideTooltip?: boolean;
+  tooltipContent?: ({ entry }: { entry: DateEntry }) => JSX.Element;
+  tooltipBackground?: string;
+  tooltipTextColor?: string;
 };

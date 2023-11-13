@@ -7,10 +7,11 @@ type MonthsContainerProps = {
     textColor: string,
 }
 function MonthsContainer({ months, squareWidth, textColor }: MonthsContainerProps) {
+
     return (
         <div className={'months-container'} style={{ fontSize: squareWidth / 2, height: squareWidth / 2, color: textColor }}>
             {months.map((monthEntry) =>
-                <div key={monthEntry.month} style={{ left: `${monthEntry.col * (squareWidth)}px`, position: "absolute" }}>{numberToMonthName(monthEntry.month)}</div>
+                <div key={monthEntry.col} style={{ left: `${monthEntry.col * (squareWidth)}px`, position: "absolute" }}>{numberToMonthName(monthEntry.month)}</div>
             )}
         </div>
     )

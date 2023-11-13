@@ -21,7 +21,7 @@ type ReactDateHeatmapComponentProps = SquareProps & React.HTMLAttributes<HTMLDiv
     textColor?: string;
 };
 
-export default function ReactDateHeatmap({ data, startDate, endDate, textColor = DefaultValues.textColor, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, ...props }: ReactDateHeatmapComponentProps) {
+export default function ReactDateHeatmap({ data, startDate, endDate, tooltipContent, textColor = DefaultValues.textColor, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, tooltipBackground, tooltipTextColor, ...props }: ReactDateHeatmapComponentProps) {
     const [board, setBoard] = useState<React.ReactNode[][]>([[]])
     const [months, setMonths] = useState<MonthEntry[]>([])
     const start = startDate ? startDate : getEarliestDate(data)
@@ -43,15 +43,15 @@ export default function ReactDateHeatmap({ data, startDate, endDate, textColor =
             if (col > 0) {
                 boardArray.push([]);
             }
-            for (let j = 0; j < rows; j++) {
-                boardArray[col].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} />);
+            for (let row = 0; row < rows; row++) {
+                boardArray[col].push(<Square tooltipContent={tooltipContent} col={col} row={row} onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} tooltipBackground={tooltipBackground} tooltipTextColor={tooltipTextColor} />);
                 counter++
             }
         }
         if (rest > 0) {
             boardArray.push([])
             for (let row = 0; row < rest; row++) {
-                boardArray[boardArray.length - 1].push(<Square onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} />)
+                boardArray[boardArray.length - 1].push(<Square tooltipContent={tooltipContent} col={boardArray.length - 1} row={row} onSquareClick={onSquareClick} entry={entries[counter]} key={counter} squareColor={shades[entries[counter].quantity]} squareSize={squareSize} emptySquareColor={emptySquareColor} hideTooltip={hideTooltip} tooltipBackground={tooltipBackground} tooltipTextColor={tooltipTextColor} />)
                 counter++
             }
         }
@@ -61,18 +61,19 @@ export default function ReactDateHeatmap({ data, startDate, endDate, textColor =
 
     function calculateMonths(entries: DateEntry[]) {
         const months: MonthEntry[] = [];
+        const uniqueMonths: Set<string> = new Set();
         entries.forEach((entry, i) => {
-            const month = entry.date.getMonth() + 1;
-            if (!months.some(m => m.month === month) && entry.date.getDate() === 1) {
+            const yearMonthKey = entry.date.getFullYear() + '-' + (entry.date.getMonth() + 1);
+            if (!uniqueMonths.has(yearMonthKey) && entry.date.getDate() === 1) {
+                uniqueMonths.add(yearMonthKey);
                 months.push({
-                    month: month,
+                    month: entry.date.getMonth() + 1,
                     col: Math.floor(i / rows),
-                })
+                });
             }
-        })
-        setMonths(months)
+        });
+        setMonths(months);
     }
-
     useEffect(() => {
         calculateBoard(entries)
     }, [data, squareSize]);

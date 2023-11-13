@@ -7,4 +7,6 @@ export const DefaultValues = {
   showShades: true,
   hideTooltip: false,
   textColor: "#000000",
+  tooltipTextColor: "#ffffff",
+  tooltipBackgroundColor: "#000000",
 };

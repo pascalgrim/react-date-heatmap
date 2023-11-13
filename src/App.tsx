@@ -7,17 +7,25 @@ import { useState } from 'react';
 
 function App() {
   const [data, setData] = useState(getRandomDateArray(100))
-  const start = new Date(2022, 9, 31);
-  const end = new Date(2022, 11, 31)
+
+  // Console log the Entry you clicked on 
   const onSquareClick = (entry: DateEntry) => {
     console.log("You Clicked on Entry", entry)
   }
+  // Create your own content div that shows when you hover over a square
+  const TooltipContent = ({ entry }: { entry: DateEntry }) => {
+    return (
+      <div style={{ display: 'flex', flexDirection: "column" }}>
+        <span>{entry.formatted}</span>
+        <span>Entries: {entry.quantity}</span>
+      </div>
+    );
+  };
 
   return (
-    <div style={{ height: "100vh", display: 'flex', justifyContent: "center", alignItems: "center" }}>
-      <ReactDateHeatmap data={data} squareColor='#00ffbb' squareSize={24} startDate={start} endDate={end} onSquareClick={onSquareClick} />
-      <button onClick={() => setData(getRandomDateArray(100))}>New data</button>
-    </div>
+
+    <ReactDateHeatmap tooltipContent={TooltipContent} data={data} onSquareClick={onSquareClick} squareColor='#ff0000' />
+
   )
 }
 
