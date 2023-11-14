@@ -3,7 +3,7 @@
   "description": "A React Component that allows you to visualize an array of dates in form of a heatmap.",
   "author": "Pascal Grimmiger",
   "private": false,
-  "version": "1.0.3",
+  "version": "1.0.4",
   "type": "module",
   "main": "dist/cjs/index.js",
   "repository": {
@@ -22,6 +22,7 @@
     "dist"
   ],
   "types": "dist/index.d.ts",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
