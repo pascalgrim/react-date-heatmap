@@ -22,6 +22,9 @@ type ReactDateHeatmapComponentProps = SquareProps & React.HTMLAttributes<HTMLDiv
 };
 
 export default function ReactDateHeatmap({ data, startDate, endDate, tooltipContent, textColor = DefaultValues.textColor, squareColor = DefaultValues.squareColor, squareSize = DefaultValues.squareSize, rows = DefaultValues.rows, showMonths = DefaultValues.showMonths, emptySquareColor = DefaultValues.emptySquareColor, showShades = DefaultValues.showShades, hideTooltip = DefaultValues.hideTooltip, onSquareClick, tooltipBackground, tooltipTextColor, ...props }: ReactDateHeatmapComponentProps) {
+    if(data.length < 2) {
+        throw new Error("ReactDateHeatmap: The data array must include at least 2 dates.")
+    }
     const [board, setBoard] = useState<React.ReactNode[][]>([[]])
     const [months, setMonths] = useState<MonthEntry[]>([])
     const start = startDate ? startDate : getEarliestDate(data)
@@ -34,7 +37,7 @@ export default function ReactDateHeatmap({ data, startDate, endDate, tooltipCont
     const rest = entries.length % rows
     const squareGap = 2
     const shadeRange = getShadeRange(entries)
-    const shades = [emptySquareColor, ...generateShades(squareColor, shadeRange)];
+    const shades = generateShades(squareColor, shadeRange,emptySquareColor);
     function calculateBoard(entries: DateEntry[]) {
         const boardArray: React.ReactNode[][] = [[]];
         let counter = 0;
@@ -76,7 +79,7 @@ export default function ReactDateHeatmap({ data, startDate, endDate, tooltipCont
     }
     useEffect(() => {
         calculateBoard(entries)
-    }, [data, squareSize]);
+    }, [data, startDate, endDate, tooltipContent, textColor, squareColor, squareSize, rows, showMonths, emptySquareColor, showShades, hideTooltip, onSquareClick, tooltipBackground, tooltipTextColor]);
 
     if (!isValidHexColorCode(squareColor)) {
         printInvalidHexCodeWarningMessage(squareColor)

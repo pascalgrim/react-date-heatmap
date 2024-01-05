@@ -7,7 +7,7 @@ type ShadeContainerProps = {
 function ShadeContainer({ shades }: ShadeContainerProps) {
     return (
         <div className='shade-container'>
-            {shades.map((color) => <Shade color={color} key={color} size={16} />)}
+            {shades.map((color,i) => <Shade color={color} key={i} size={16} />)}
         </div>
     )
 }

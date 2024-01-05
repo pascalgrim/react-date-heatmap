@@ -1,18 +1,23 @@
 import { DateEntry } from "../types";
 
-export function generateShades(baseColor: string, numShades: number) {
+export function generateShades(
+  baseColor: string,
+  numShades: number,
+  emptySquareColor: string
+) {
   const shades = [];
   for (let i = 0; i < numShades; i++) {
     const brightness = (i + 1) / (numShades + 1);
     shades.push(shadeColor(baseColor, brightness));
   }
-  return shades;
+  const res = [emptySquareColor, ...shades];
+  return res;
 }
 
 function shadeColor(color: string, brightness: number) {
-  var r = parseInt(color.slice(1, 3), 16);
-  var g = parseInt(color.slice(3, 5), 16);
-  var b = parseInt(color.slice(5, 7), 16);
+  let r = parseInt(color.slice(1, 3), 16);
+  let g = parseInt(color.slice(3, 5), 16);
+  let b = parseInt(color.slice(5, 7), 16);
 
   r = Math.round(r * brightness);
   g = Math.round(g * brightness);

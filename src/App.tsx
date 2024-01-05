@@ -21,11 +21,16 @@ function App() {
       </div>
     );
   };
+  const [squareColor,setSquareColor] = useState("#ff0000")
 
   return (
+    <>
+  <form>
+    <input type="color" value={squareColor} onChange={(e)=>setSquareColor(e.target.value)}/>
+  </form>
 
-    <ReactDateHeatmap tooltipContent={TooltipContent} data={data} onSquareClick={onSquareClick} squareColor='#ff0000' />
-
+    <ReactDateHeatmap tooltipContent={TooltipContent} data={data} onSquareClick={onSquareClick} squareColor={squareColor} />
+</>
   )
 }
 
