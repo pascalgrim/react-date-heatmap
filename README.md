@@ -39,7 +39,7 @@ export default YourComponent;
 
 ```jsx
 import React, { useState } from "react";
-import { DateEntry, ReactDateHeatmap } from "../src/ReactDateHeatmap";
+import { DateEntry, ReactDateHeatmap } from "react-date-heatmap";
 
 // generate an array of random dates
 function getRandomDateArray(length: number) {
